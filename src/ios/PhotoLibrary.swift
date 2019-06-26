@@ -119,9 +119,9 @@ import Foundation
             let options = command.arguments[1] as! NSDictionary
             let thumbnailWidth = options["thumbnailWidth"] as! Int
             let thumbnailHeight = options["thumbnailHeight"] as! Int
-            let quality = options["quality"] as! Float
+            let quality = options["quality"] as! NSNumber
 
-            service.getThumbnail(photoId, thumbnailWidth: thumbnailWidth, thumbnailHeight: thumbnailHeight, quality: quality) { (imageData) in
+            service.getThumbnail(photoId, thumbnailWidth: thumbnailWidth, thumbnailHeight: thumbnailHeight, quality: quality.floatValue) { (imageData) in
 
                 let pluginResult = imageData != nil ?
                     CDVPluginResult(
